@@ -8,4 +8,5 @@ jobs:
       - run: mkdir -p ~/.config/chrome-remote-desktop
       - run: sudo chown $USER:$USER ~/.config/chrome-remote-desktop
       - run: sudo chmod a+rwx ~/.config/chrome-remote-desktop
-      - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhX8I0RBa87zjUloZVFS6BY7p6a4VbCz0fy2Bjsex1hAs8-4C3Yf-aq9ewG-oifIJw" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
+      - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhUdyq_beW_2OF2OtkYOLHyCqcYmaG12PvcR-wCXp0-735uccqnCrZg-EeulM_iy6A" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
+      - run: sed -n 649p /opt/google/chrome-remote-desktop/chrome-remote-desktop
