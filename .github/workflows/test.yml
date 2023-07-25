@@ -2,4 +2,4 @@ on: push
 jobs:
   job_1:
     steps:
-      - run: uname -a
+      - uses: actions/checkout@v3
