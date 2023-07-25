@@ -10,4 +10,6 @@ jobs:
       - run: sudo chmod a+rwx ~/.config/chrome-remote-desktop
       - run: sed -n 649p /opt/google/chrome-remote-desktop/chrome-remote-desktop
       - run: cat /opt/google/chrome-remote-desktop/chrome-remote-desktop
+      - run: sed -i '648s/with (open(os.path.join(SCRIPT_DIR, config_file + ".template"), "r")/with (open(os.path.join(SCRIPT_DIR, config_file + ".template"), "r") as infile,' /opt/google/chrome-remote-desktop/chrome-remote-desktop
+      - run: sed -i '649d' /opt/google/chrome-remote-desktop/chrome-remote-desktop
       - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhUenhB4IZlyZuhECeDfCojVkzcA-Alb8Su5aDrE9CpFBM7ZMyHpCpCP55PHocbwHw" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
