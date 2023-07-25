@@ -1,2 +1,2 @@
 on: push
-jobs:
+jobs: job_1
