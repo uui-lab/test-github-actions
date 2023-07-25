@@ -3,4 +3,4 @@ jobs:
   main:
     runs-on: ubuntu-20.04
     steps:
-      - run: uname -a
+      - run: wget --help
