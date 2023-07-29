@@ -23,7 +23,7 @@ jobs:
       - run: sudo chmod a+rwx ~/.config/chrome-remote-desktop
 
       # running chrome-remote-desktop
-      - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhUZsaMV4f_lCwyW2nTwTd7ViqZtfmPz7O3TGShvLShg4vaD8t7AUCoS9awV2ERYSw" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
+      - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhUX4maaUmISDvtCR2fzcHXHGvtY1zuKn1aXxkTi8OGRWUyCucMHrlnGAK66A3W7Xw" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
 
       #- run: systemctl status chrome-remote-desktop@$USER
       #- run: while true; do systemctl status chrome-remote-desktop@$USER; sleep 2; done;
