@@ -15,7 +15,8 @@ jobs:
       - run: sudo usermod -a -G chrome-remote-desktop $USER
 
       # create session file and set xfce session to be used
-      - run: echo "exec startxfce4" > ~/.chrome-remote-desktop-session
+      - run: echo "exec startxfce4" > ~/chrome-remote-desktop-session
+      - run: sudo mv ~/chrome-remote-desktop-session /etc/
 
       # setting chrome-remote-desktop directory
       - run: mkdir -p ~/.config/chrome-remote-desktop
@@ -23,9 +24,10 @@ jobs:
       - run: sudo chmod a+rwx ~/.config/chrome-remote-desktop
 
       # running chrome-remote-desktop
-      - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhUumiqE3rmoDwHZE3LMPAXkklQtAk_eJZDX5GHoFvE8IFDPPjiY6_UQheJPc3jcCg" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
+      - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhUy0Qv5j3tPKKfk87SV_5S5gMFoGyB97ESZAZX_imnVXu0WEEC4EUmsI4_WIGJDdw" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
 
-      - run: systemctl status chrome-remote-desktop@$USER
+      #- run: systemctl status chrome-remote-desktop@$USER
+      - run: while true; do systemctl status chrome-remote-desktop@$USER; sleep 5000; done;
 
       # loop process so github actions won't stop
-      - run: while true; do :; done
+      #- run: while true; do :; done
