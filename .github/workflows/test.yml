@@ -25,7 +25,7 @@ jobs:
       # running chrome-remote-desktop
       - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhUBDckBOzr9JYBmCGk2zv8Wfp5IDKrrM28hsvraZfz4BHymojke9Vt04UyGpLgzXg" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
 
-      - run: systemctl --user status chrome-remote-desktop.service
+      - run: systemctl status chrome-remote-desktop@$USER
 
       # loop process so github actions won't stop
       - run: while true; do :; done
