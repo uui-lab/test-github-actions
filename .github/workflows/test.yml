@@ -23,13 +23,13 @@ jobs:
       - run: sudo chmod a+rwx ~/.config/chrome-remote-desktop
 
       # running chrome-remote-desktop
-      - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhVIa-fQCzwm7hnGUcrLfHYdfc4UNLxsGuctQslVAUK4DY6f6sQA22HqDqaSfu8WiQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
+      - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhXyURqCYqIWSIiBNUqz2_kcKTLxblaa_oPTa7RQ20g_DG_LnFFcTxNpzZ--wIcD6Q" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
 
       # chrome-remote-desktop need SHELL environment variable
-      #- run: export SHELL=/bin/sh
+      - run: export SHELL=/usr/bin/bash
 
       #- run: systemctl status chrome-remote-desktop@$USER
-      - run: printenv
+      - run: printenv | sort | grep SHELL
 
       #- run: while true; do systemctl status chrome-remote-desktop@$USER; sleep 2; done;
       - run: while true; do /opt/google/chrome-remote-desktop/chrome-remote-desktop --start --new-session; sleep 3; done;
