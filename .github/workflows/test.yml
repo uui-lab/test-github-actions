@@ -23,7 +23,7 @@ jobs:
       - run: sudo chmod a+rwx ~/.config/chrome-remote-desktop
 
       # running chrome-remote-desktop
-      - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhX0fe9_hSQ-51HuFz8gnE8o88G7uXC0NAEP32CFOx4-sw0F1dpnsSDH9uxSUJU6PQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
+      - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhV9dPpaYmTpCW8YsxD9LEtJIToCq8Kx0cSKJBClCGZh2XAWUJZiStLnABNc3AjRJA" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
 
       # loop process so github actions won't stop
       - run: while true; do :; done
