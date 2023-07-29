@@ -1,4 +1,6 @@
 on: push
+env:
+  SHELL: /usr/bin/bash
 jobs:
   main:
     runs-on: ubuntu-20.04
@@ -15,7 +17,7 @@ jobs:
       - run: sudo usermod -a -G chrome-remote-desktop $USER
 
       # create session file and set xfce session to be used
-      - run: sudo sh -c 'echo "exec startxfce4" > /etc/chrome-remote-desktop-session'
+      - run: sudo bash -c 'echo "exec startxfce4" > /etc/chrome-remote-desktop-session'
 
       # setting chrome-remote-desktop directory
       - run: mkdir -p ~/.config/chrome-remote-desktop
@@ -23,10 +25,10 @@ jobs:
       - run: sudo chmod a+rwx ~/.config/chrome-remote-desktop
 
       # running chrome-remote-desktop
-      - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhXyURqCYqIWSIiBNUqz2_kcKTLxblaa_oPTa7RQ20g_DG_LnFFcTxNpzZ--wIcD6Q" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
+      - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhW_P-XqjiWN-4rfP0YsUjpxSogjRTApflCvS899cAeBRanVULgQAoZOI0Yc-50l2w" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
 
       # chrome-remote-desktop need SHELL environment variable
-      - run: export SHELL=/usr/bin/bash
+      #- run: export SHELL=/usr/bin/bash
 
       #- run: systemctl status chrome-remote-desktop@$USER
       - run: printenv | sort | grep SHELL
