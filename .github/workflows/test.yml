@@ -9,3 +9,4 @@ jobs:
       - run: sudo chown $USER:$USER ~/.config/chrome-remote-desktop
       - run: sudo chmod a+rwx ~/.config/chrome-remote-desktop
       - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhUg2h8iCcj2qk5o3tVJ9hRnhC2QjnfFXiS9K167kRhT48HcKbr0KyVI2yxdZUAc2A" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
+      - run: read var_name
