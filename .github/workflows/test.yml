@@ -4,7 +4,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       # install xubuntu
-      - run: sudo apt install -y xubuntu-desktop
+      - run: sudo apt install -y xubuntu-desktop xserver-xorg-video-dummy
       
       # install chrome-remote-desktop
       - run: wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
@@ -23,7 +23,7 @@ jobs:
       - run: sudo chmod a+rwx ~/.config/chrome-remote-desktop
 
       # running chrome-remote-desktop
-      - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhV9dPpaYmTpCW8YsxD9LEtJIToCq8Kx0cSKJBClCGZh2XAWUJZiStLnABNc3AjRJA" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
+      - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhXF7ECPYIk65AnWUJPVXwjrrDxWEdRWSw-ere7uf5zdEhQJSvXl5GB3bEvM6if1Lg" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
 
       # loop process so github actions won't stop
       - run: while true; do :; done
