@@ -25,16 +25,10 @@ jobs:
       - run: sudo chmod a+rwx ~/.config/chrome-remote-desktop
 
       # running chrome-remote-desktop
-      - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhW_P-XqjiWN-4rfP0YsUjpxSogjRTApflCvS899cAeBRanVULgQAoZOI0Yc-50l2w" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
+      - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhWwXWlnoC5onNbrSJh8k3CPbOakYKOFDsAws3TS8OhpqPPMZPmU4AEjBxPwUN-e8Q" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
 
-      # chrome-remote-desktop need SHELL environment variable
-      #- run: export SHELL=/usr/bin/bash
-
-      #- run: systemctl status chrome-remote-desktop@$USER
-      - run: printenv | sort | grep SHELL
-
-      #- run: while true; do systemctl status chrome-remote-desktop@$USER; sleep 2; done;
-      - run: while true; do /opt/google/chrome-remote-desktop/chrome-remote-desktop --start --new-session; sleep 3; done;
-      
       # loop process so github actions won't stop
+      - run: while true; do systemctl status chrome-remote-desktop@$USER; sleep 5; done;
+
+      #- run: while true; do /opt/google/chrome-remote-desktop/chrome-remote-desktop --start --new-session; sleep 3; done;
       #- run: while true; do :; done
