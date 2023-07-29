@@ -22,16 +22,17 @@ jobs:
       - run: sudo chown $USER:$USER ~/.config/chrome-remote-desktop
       - run: sudo chmod a+rwx ~/.config/chrome-remote-desktop
 
-      # chrome-remote-desktop need SHELL environment variable
-      - run: export SHELL=/bin/sh
-
       # running chrome-remote-desktop
-      - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhXxr7RwhmUarl_LZRFXn5djEcvec_-gXTFGApI5Xnc5eGdIGCM-SJ11ztaneMd5ZA" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
+      - run: DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhVIa-fQCzwm7hnGUcrLfHYdfc4UNLxsGuctQslVAUK4DY6f6sQA22HqDqaSfu8WiQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123456
+
+      # chrome-remote-desktop need SHELL environment variable
+      #- run: export SHELL=/bin/sh
 
       #- run: systemctl status chrome-remote-desktop@$USER
+      - run: printenv
+
       #- run: while true; do systemctl status chrome-remote-desktop@$USER; sleep 2; done;
       - run: while true; do /opt/google/chrome-remote-desktop/chrome-remote-desktop --start --new-session; sleep 3; done;
       
-
       # loop process so github actions won't stop
       #- run: while true; do :; done
